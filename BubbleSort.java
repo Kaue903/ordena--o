@@ -4,7 +4,7 @@ public class BubbleSort{
     public static void main(String[] args) {
         //Declaração de variáeaveis 
         //int n1, n2, n3, n4;
-        int[] num = new int[4];
+        int[] num; //= new int[4];
 
         //Construção do objeto de entrada
         Scanner entrada = new Scanner(System.in);
@@ -12,8 +12,15 @@ public class BubbleSort{
         //Apresentação
         System.out.println("\n\t\t\t --Ordenação de números com Bubble Sort --\n");
 
+        //Quantos números?
+        System.out.print("Quantos números deseja ordenar:");
+        int qtd = entrada.nextInt();
+
+        //Definindo o comprimento do vetor 
+        num = new int[qtd];
+
         //Entrada de dados
-        for(int i = 0; i < 4; i++){
+        for(int i = 0; i < num.length; i++){
             System.out.print("Informe o n" + (i+1) +":");
             num[i] = entrada.nextInt();
 
@@ -30,8 +37,8 @@ public class BubbleSort{
 
 
         //Processamento
-        for(int i = 0; i < 3; i++){
-            for (int j = (i+1); j < 4; j++){
+        for(int i = 0; i < (num.length - 1); i++){
+            for (int j = (i+1); j < num.length; j++){
                 if (num[i] > num[j]) {
                     int swap = num[j];
                     num[j] = num[i];
@@ -54,8 +61,12 @@ public class BubbleSort{
 
         //Saída
         System.out.println("\n");
-        for (int n: num) {
-            System.out.print(n + ", ");
+        for (int i = 0; i < num.length; i++) {
+            if(i == (num.length - 1)) {
+                System.out.print(num[i]);
+            } else {
+            System.out.print(num[i] + " , ");
+            }
         }
 
         /* Obsoleto
@@ -64,7 +75,8 @@ public class BubbleSort{
 
 
          }
-        
- }
+    }   
+
+
     
 
